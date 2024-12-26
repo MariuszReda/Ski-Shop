@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+builder.Services.AddCors();
 
 builder.Services.AddDbContext<StoreContext>(options =>{
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -22,6 +23,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors(options => {
+    options.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+});
 app.UseHttpsRedirection();
 
 app.MapControllers();
