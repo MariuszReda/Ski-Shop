@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { Product } from "../models/Product";
+import Catalog from "../../features/Catalog/Catalog";
+import { Typography } from "@mui/material";
 
 
 
@@ -26,13 +28,8 @@ function App() {
 
   return (
     <div>
-      <h1>Ski-Shop</h1>
-      <ul>
-        {products.map((item, index)=>(
-          <li key={index}>{item.name}</li>
-        ))}
-      </ul>
-      <button onClick={addProduct}>Add Product</button>
+      <Typography variant="h1">Ski-Shop</Typography >
+    <Catalog products={products} addProduct={addProduct}/>
     </div>
   )
 }
