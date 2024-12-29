@@ -1,4 +1,4 @@
-import { ListItem, ListItemAvatar, Avatar, ListItemText } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography, Button, CardActions } from "@mui/material";
 import { Product } from "../../app/models/Product";
 
 interface Prop{
@@ -7,13 +7,25 @@ interface Prop{
 
 export function ProductCard({product}: Prop){
     return(
-        <ListItem key={product.id}>
-        <ListItemAvatar>
-            <Avatar src={product.pictureUrl}></Avatar>
-        </ListItemAvatar>
-        <ListItemText>                        
-            {product.name} - {product.price}
-        </ListItemText>
-    </ListItem>
+        <Card>
+        <CardMedia
+          sx={{ height: 140 }}
+          image="/static/images/cards/contemplative-reptile.jpg"
+          title="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Lizard
+          </Typography>
+          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Share</Button>
+          <Button size="small">Learn More</Button>
+        </CardActions>
+      </Card>
     )
 }
