@@ -18,4 +18,9 @@ export const router = createBrowserRouter([
             {path:'contact',element:<ContactPage/>},
         ]
     }    
-])
+],
+{
+    future: {
+        v7_relativeSplatPath: true
+    }
+})
