@@ -17,6 +17,8 @@ builder.Services.AddDbContext<StoreContext>(options =>{
 
 var app = builder.Build();
 
+app.UseMiddleware<ExeptionMiddleware>();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
