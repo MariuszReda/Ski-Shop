@@ -15,12 +15,6 @@ public class BuggyController : ApiBaseController
     public ActionResult GetBadRequest()
     {
 
-    var validationDetails = new ValidationProblemDetails
-    {
-        Title = "Validation failed",
-        Status = StatusCodes.Status400BadRequest,
-        Detail = "One or more validation errors occurred."
-    };
         return BadRequest(new ProblemDetails{Title ="This is a bad request"});
     }
 

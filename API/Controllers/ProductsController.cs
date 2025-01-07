@@ -27,7 +27,13 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            return await _dbcontext.Products.FindAsync(id);
+            var product = await _dbcontext.Products.FindAsync(id);
+
+            if(product != null)
+                return product;
+            
+
+            return NotFound();
         }
     }
 }
