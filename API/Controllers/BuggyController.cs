@@ -1,6 +1,7 @@
 
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 public class BuggyController : ApiBaseController
 {
@@ -14,7 +15,6 @@ public class BuggyController : ApiBaseController
     [HttpGet("bad-request")]
     public ActionResult GetBadRequest()
     {
-
         return BadRequest(new ProblemDetails{Title ="This is a bad request"});
     }
 
@@ -34,8 +34,8 @@ public class BuggyController : ApiBaseController
     }
 
     [HttpGet("server-error")]
-    public ActionResult GerServerError()
+    public ActionResult GetServerError()
     {
-        throw new Exception("Server Error");
+        throw new Exception("");
     }
 }

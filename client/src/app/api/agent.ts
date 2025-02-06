@@ -15,6 +15,17 @@ axios.interceptors.response.use(response => {
         switch(status)
         {
             case 400:
+                if(data.errors){
+                    const validationErrors: string[]  =[];
+                    for(const key in data.errors){
+                        if(data.errors[key])
+                        {
+                           validationErrors.push(data.errors[key]);
+                        }
+                    }
+                    throw validationErrors.flat();
+
+                }
                 toast.error(data.title )
                 break;
             case 401:
@@ -51,7 +62,6 @@ const testErrors = {
     get404Error: ()=>methodHTTP.get("buggy/not-found"),
     get500Error: ()=>methodHTTP.get("buggy/server-error"),
     getValidationError: ()=>methodHTTP.get("buggy/validation-error")
-
 }
 
 const agent = {
