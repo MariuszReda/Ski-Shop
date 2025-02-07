@@ -36,6 +36,6 @@ public class BuggyController : ApiBaseController
     [HttpGet("server-error")]
     public ActionResult GetServerError()
     {
-        throw new Exception("");
+        throw new Exception("Server Error");
     }
 }
