@@ -6,7 +6,7 @@ axios.defaults.baseURL = "http://localhost:5000/api/";
 
 function sleep()
 {
-    return new Promise(resolve  => setTimeout(resolve,1000));
+    return new Promise(resolve  => setTimeout(resolve,500));
 }
 
 
@@ -54,8 +54,8 @@ axios.interceptors.response.use(async response => {
 //object
 const methodHTTP = {
     get: (url: string) => axios.get(url).then(requestAxios),
-    post: (url: string, body: any) => axios.post(url, body).then(requestAxios),
-    put: (url: string, body: any) => axios.put(url, body).then(requestAxios),
+    post: (url: string, body: object) => axios.post(url, body).then(requestAxios),
+    put: (url: string, body: object) => axios.put(url, body).then(requestAxios),
     delete: (url: string) => axios.delete(url).then(requestAxios) 
 }
 
